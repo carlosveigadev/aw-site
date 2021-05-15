@@ -13,18 +13,20 @@
     "start": "webpack serve --hot --mode development"
   },
   "dependencies": {
-    "source-map-loader": "^1.0.0",
+    "@babel/plugin-transform-runtime": "^7.14.2",
     "@chakra-ui/react": "^1.6.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@waxio/waxjs": "^0.0.15",
     "framer-motion": "^4",
+    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-loader": "^4.13.0",
     "react-redux": "^7.2.4",
     "redux": "^4.1.0",
-    "redux-persist": "^6.0.0"
+    "redux-persist": "^6.0.0",
+    "source-map-loader": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.14.2",

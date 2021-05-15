@@ -1,9 +1,11 @@
 import React from 'react';
-import { Box, Center, Text } from "@chakra-ui/react";
+import { Box, Text } from "@chakra-ui/react";
+import LoginButton from './Login';
 
 const Home = () => (
   <Box>
     <Text>Hello World</Text>
+    <LoginButton />
   </Box>
 );
 
