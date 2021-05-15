@@ -2,6 +2,11 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
+  plugins: [
+    new webpack.ProvidePlugin({
+       "React": "react",
+    }),
+ ],
   entry: [
     'react-hot-loader/patch',
     './src/index.js'
@@ -12,6 +17,11 @@ const config = {
   },
   module: {
     rules: [
+      {
+        test: /\.js$/,
+        enforce: 'pre',
+        use: ['source-map-loader'],
+      },
       {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
@@ -58,7 +68,7 @@ const config = {
   },
   devServer: {
     contentBase: './dist'
-  }
+  },
 };
 
 module.exports = config;

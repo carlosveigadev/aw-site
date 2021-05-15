@@ -13,29 +13,38 @@
     "start": "webpack serve --hot --mode development"
   },
   "dependencies": {
+    "source-map-loader": "^1.0.0",
+    "@chakra-ui/react": "^1.6.1",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@waxio/waxjs": "^0.0.15",
+    "framer-motion": "^4",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hot-loader": "^4.13.0"
+    "react-hot-loader": "^4.13.0",
+    "react-redux": "^7.2.4",
+    "redux": "^4.1.0",
+    "redux-persist": "^6.0.0"
   },
   "devDependencies": {
-    "webpack": "^5.37.0",
-    "webpack-cli": "^4.7.0",
-    "babel-loader": "^8.2.2",
     "@babel/core": "^7.14.2",
     "@babel/preset-env": "^7.14.2",
-    "@hot-loader/react-dom": "^17.0.1+4.13.0",
     "@babel/preset-react": "^7.13.13",
-    "webpack-dev-server": "^3.11.2",
-    "css-loader": "^5.2.4",
-    "style-loader": "^2.0.0",
-    "eslint": "^7.26.0",
-    "eslint-plugin-react": "^7.23.2",
-    "postcss-loader": "^5.3.0",
+    "@hot-loader/react-dom": "^17.0.1+4.13.0",
     "autoprefixer": "^10.2.5",
-    "file-loader": "^6.2.0",
-    "url-loader": "^4.1.1",
-    "prettier": "^2.3.0",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^5.2.4",
+    "eslint": "^7.26.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0"
+    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.23.2",
+    "file-loader": "^6.2.0",
+    "postcss-loader": "^5.3.0",
+    "prettier": "^2.3.0",
+    "style-loader": "^2.0.0",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.37.0",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
   }
 }
