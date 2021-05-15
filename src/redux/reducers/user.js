@@ -1,6 +1,6 @@
 import { USER_DATA } from "../actions";
 
-const userReducer = (state = { user_data: "" }, action) => {
+const userReducer = (state = { isLoggedIn: false, userCode: '', userInfo: '' }, action) => {
   switch (action.type) {
     case USER_DATA:
       return action.payload;
