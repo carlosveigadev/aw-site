@@ -1,4 +1,4 @@
-import { USER_DATA } from "../actions";
+import { USER_DATA } from '../actions';
 
 const userReducer = (state = { isLoggedIn: false, userCode: '', userInfo: '' }, action) => {
   switch (action.type) {

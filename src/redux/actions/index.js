@@ -1,4 +1,4 @@
-const USER_DATA = "USER_DATA";
+const USER_DATA = 'USER_DATA';
 
 const userData = (data) => ({
   type: USER_DATA,
