@@ -1,13 +1,14 @@
 import React from 'react';
-import { Box, Text } from '@chakra-ui/react';
+import { Box } from '@chakra-ui/react';
 import LoginButton from '../containers/Login';
 import Dashboard from '../containers/Dashboard';
+import ThemeChanger from './ThemeChanger';
 
 const Home = () => (
   <Box>
-    <Text>Hello World</Text>
     <LoginButton />
     <Dashboard />
+    <ThemeChanger />
   </Box>
 );
 

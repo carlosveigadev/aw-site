@@ -9,7 +9,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import userReducer from './redux/reducers/user';
 import Home from './components/Home';
-import Theme from './containers/Theme';
+import Theme from './components/Theme';
 
 const rootReducer = combineReducers({
   userData: userReducer,

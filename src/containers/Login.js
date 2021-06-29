@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Button, useColorMode } from '@chakra-ui/react';
+import { Button } from '@chakra-ui/react';
 import { connect } from 'react-redux';
 import { login } from '../api-requests';
 import { userData } from '../redux/actions';
@@ -10,17 +10,9 @@ const LoginButton = ({ userData }) => {
     userData({ isLoggedIn: true, userCode: data, userInfo: '' });
   };
 
-  const { colorMode, toggleColorMode } = useColorMode();
-
   return (
     <>
       <Button onClick={onClick}>Connect</Button>
-      <Button onClick={toggleColorMode}>
-        {' '}
-        Toggle
-        {' '}
-        {colorMode === 'light' ? 'Dark' : 'Light'}
-      </Button>
     </>
   );
 };
