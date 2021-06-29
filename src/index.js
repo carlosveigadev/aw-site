@@ -1,7 +1,7 @@
 /* eslint-disable no-underscore-dangle */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 import { combineReducers, createStore } from 'redux';
@@ -9,6 +9,7 @@ import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import userReducer from './redux/reducers/user';
 import Home from './components/Home';
+import Theme from './containers/Theme';
 
 const rootReducer = combineReducers({
   userData: userReducer,
@@ -32,6 +33,7 @@ ReactDOM.render(
   <ChakraProvider>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <ColorModeScript initialColorMode={Theme.config.initialColorMode} />
         <Home />
       </PersistGate>
     </Provider>

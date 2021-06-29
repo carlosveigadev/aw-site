@@ -70,3 +70,18 @@ export const requestItemsData = async (itemCode) => {
     return error;
   }
 };
+
+export const requestLandData = async (landCode) => {
+  try {
+    const response = await axios({
+      url: `https://wax.api.atomicassets.io/atomicassets/v1/assets/${landCode}`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    const newData = await response.data.data.data;
+    return newData;
+  } catch (error) {
+    return error;
+  }
+};

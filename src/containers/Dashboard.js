@@ -2,14 +2,16 @@ import { Box, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
-import { requestLastMine, requestItems, requestItemsData } from '../api-requests';
+import {
+  requestLastMine, requestItems, requestItemsData,
+} from '../api-requests';
 import MiningItems from '../components/MiningItems';
-import Timer from '../components/Timer';
 
 const Dashboard = ({ isLoggedIn, userCode }) => {
   if (isLoggedIn) {
     const [time, setTime] = useState('');
     const [items, setItems] = useState([]);
+    const [land, setLand] = useState('');
 
     useEffect(() => {
       setTimeout(async () => {
@@ -21,13 +23,13 @@ const Dashboard = ({ isLoggedIn, userCode }) => {
           setItems((prevItems) => [...prevItems, [result.name, result.delay]]);
         });
         setTime(dataMine.last_mine);
+        setLand(dataMine.current_land);
       }, 1000);
     }, []);
 
-    if (items !== []) {
+    if (items !== [] && land !== '') {
       return (
         <Box>
-          <Timer time={time} />
           <MiningItems items={items} />
         </Box>
       );
