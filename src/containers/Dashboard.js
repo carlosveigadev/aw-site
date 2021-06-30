@@ -6,10 +6,12 @@ import {
   requestLastMine, requestItems, requestItemsData,
 } from '../api-requests';
 import MiningItems from '../components/MiningItems';
+import NavBar from '../components/NavBar';
 
 const Dashboard = ({ isLoggedIn, userCode }) => {
   if (isLoggedIn) {
     const [time, setTime] = useState('');
+    console.log(time);
     const [items, setItems] = useState([]);
     const [land, setLand] = useState('');
 
@@ -29,17 +31,23 @@ const Dashboard = ({ isLoggedIn, userCode }) => {
 
     if (items !== [] && land !== '') {
       return (
-        <Box>
-          <MiningItems items={items} />
-        </Box>
+        <>
+          <NavBar />
+          <Box>
+            <MiningItems items={items} />
+          </Box>
+        </>
       );
     }
   }
 
   return (
-    <Box>
-      <Text>Você precisa se conectar com sua conta de AlienWorlds.</Text>
-    </Box>
+    <>
+      <NavBar />
+      <Box>
+        <Text>Você precisa se conectar com sua conta de AlienWorlds.</Text>
+      </Box>
+    </>
   );
 };
 

@@ -4,16 +4,16 @@ const path = require('path');
 const config = {
   plugins: [
     new webpack.ProvidePlugin({
-       "React": "react",
+      React: 'react',
     }),
- ],
+  ],
   entry: [
     'react-hot-loader/patch',
-    './src/index.js'
+    './src/index.js',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: 'bundle.js',
   },
   module: {
     rules: [
@@ -21,31 +21,31 @@ const config = {
         test: /\.js$/,
         enforce: 'pre',
         use: [
-            {
-                //needed to chain sourcemaps.  see: https://webpack.js.org/loaders/source-map-loader/
-                loader: 'source-map-loader',
-                options: {
+          {
+            // needed to chain sourcemaps.  see: https://webpack.js.org/loaders/source-map-loader/
+            loader: 'source-map-loader',
+            options: {
 
-                    filterSourceMappingUrl: (url, resourcePath) => {
-                        //  console.log({ url, resourcePath }) example:
-                        // {
-                        //  url: 'index.js.map',
-                        //  resourcePath: '/repos/xlib-wsl/common/temp/node_modules/.pnpm/https-proxy-agent@5.0.0/node_modules/https-proxy-agent/dist/index.js'
-                        // }
+              filterSourceMappingUrl: (url, resourcePath) => {
+                //  console.log({ url, resourcePath }) example:
+                // {
+                //  url: 'index.js.map',
+                //  resourcePath: '/repos/xlib-wsl/common/temp/node_modules/.pnpm/https-proxy-agent@5.0.0/node_modules/https-proxy-agent/dist/index.js'
+                // }
 
-                        if (/.*\/node_modules\/.*/.test(resourcePath)) {
-                            return false
-                        }
-                        return true
-                    }
-
+                if (/.*\/node_modules\/.*/.test(resourcePath)) {
+                  return false;
                 }
-            }],
-    },
+                return true;
+              },
+
+            },
+          }],
+      },
       {
         test: /\.(js|jsx)$/,
         use: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -54,15 +54,15 @@ const config = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
-            }
+              importLoaders: 1,
+            },
           },
-          'postcss-loader'
-        ]
+          'postcss-loader',
+        ],
       },
       {
         test: /\.svg$/,
-        use: 'file-loader'
+        use: 'file-loader',
       },
       {
         test: /\.png$/,
@@ -70,24 +70,25 @@ const config = {
           {
             loader: 'url-loader',
             options: {
-              mimetype: 'image/png'
-            }
-          }
-        ]
-      }
-    ]
+              mimetype: 'image/png',
+            },
+          },
+        ],
+      },
+    ],
   },
   resolve: {
     extensions: [
       '.js',
-      '.jsx'
+      '.jsx',
     ],
     alias: {
-      'react-dom': '@hot-loader/react-dom'
-    }
+      'react-dom': '@hot-loader/react-dom',
+    },
   },
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    historyApiFallback: true,
   },
 };
 

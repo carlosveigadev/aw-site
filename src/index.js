@@ -8,7 +8,7 @@ import { combineReducers, createStore } from 'redux';
 import storage from 'redux-persist/lib/storage';
 import { persistReducer, persistStore } from 'redux-persist';
 import userReducer from './redux/reducers/user';
-import Home from './components/Home';
+import Home from './App';
 import Theme from './components/Theme';
 
 const rootReducer = combineReducers({

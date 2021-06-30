@@ -1,15 +1,27 @@
-import React from 'react';
 import { Box } from '@chakra-ui/react';
 import LoginButton from '../containers/Login';
-import Dashboard from '../containers/Dashboard';
+import NavBar from './NavBar';
 import ThemeChanger from './ThemeChanger';
 
 const Home = () => (
-  <Box>
-    <LoginButton />
-    <Dashboard />
-    <ThemeChanger />
-  </Box>
+  <>
+    <NavBar />
+    <Box
+      border="1px solid red"
+      m="4"
+      display="flex"
+      flexDirection="column"
+    >
+      <Box
+        display="flex"
+        justifyContent="space-between"
+      >
+        <LoginButton />
+        <ThemeChanger />
+      </Box>
+    </Box>
+  </>
+
 );
 
 export default Home;
