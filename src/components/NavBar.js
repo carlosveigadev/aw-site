@@ -86,6 +86,8 @@ const NavBar = () => {
       >
         <MenuItem to="/">Home</MenuItem>
         <MenuItem to="/dashboard">Dashboard</MenuItem>
+        <ThemeChanger />
+
       </Flex>
     </>
   );

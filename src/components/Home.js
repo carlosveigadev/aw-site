@@ -5,7 +5,6 @@ const Home = () => (
   <>
     <NavBar />
     <Box
-      border="1px solid red"
       m="4"
       display="flex"
       flexDirection="column"
