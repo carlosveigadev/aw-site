@@ -2,6 +2,7 @@ import { Box, Text } from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
+import LoginButton from './Login';
 import {
   requestLastMine, requestItems, requestItemsData,
 } from '../api-requests';
@@ -45,6 +46,7 @@ const Dashboard = ({ isLoggedIn, userCode }) => {
     <>
       <NavBar />
       <Box>
+        <LoginButton />
         <Text>Você precisa se conectar com sua conta de AlienWorlds.</Text>
       </Box>
     </>
