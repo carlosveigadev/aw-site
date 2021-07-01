@@ -1,5 +1,5 @@
 import {
-  Image, Grid, Link, Flex, Heading, Avatar, Box, Text,
+  Image, Grid, Link, Flex, Heading, Avatar, Box, Text, Icon,
 } from '@chakra-ui/react';
 import {
   FaFacebookF, FaInstagram, FaTwitch, FaYoutube,
@@ -49,34 +49,34 @@ const Home = () => (
       </Grid>
     </main>
 
-    <footer>
-      <Flex>
-        <Avatar name="Acha Jogo" src={achaJogoPic} />
-        <Box>
-          <Heading>Sobre Nós </Heading>
+    <Box mx="3em">
+      <Flex bgColor="#222222" color="#fefefe" p="2em">
+        <Avatar name="Acha Jogo" src={achaJogoPic} alignSelf="center" size="xl" />
+        <Box mx="3em">
+          <Heading size="md" my="1em">Sobre Nós </Heading>
           <Text>O AchaJogo é o local ideal para fiar informado sobre o mundo gamer.</Text>
-          <Text>
+          <Text my="1em">
             Contact us:
             {' '}
-            <Link color="darkblue" as="a" href="mailto:contato@achajogo.com.br">contato@achajogo.com.br</Link>
+            <Link color="#4bace8" as="a" href="mailto:contato@achajogo.com.br">contato@achajogo.com.br</Link>
           </Text>
         </Box>
-        <Box>
-          <Heading>Siga-nos </Heading>
-          <Flex>
-            <FaFacebookF />
-            <FaInstagram />
-            <FaTwitch />
-            <FaYoutube />
+        <Box mx="3em">
+          <Heading size="md" my="1em">Siga-nos: </Heading>
+          <Flex fontSize="2em" justifyContent="space-around">
+            <Link mr="20px" href="https://www.facebook.com/achajogo/" target="_blank" _hover={{ color: '#3b5998' }}><FaFacebookF /></Link>
+            <Link mr="20px" href="https://www.instagram.com/achajogo/" target="_blank" _hover={{ color: '#c13584' }}><FaInstagram /></Link>
+            <Link mr="20px" href="https://www.twitch.tv/achajogo" target="_blank" _hover={{ color: '#6441a5' }}><FaTwitch /></Link>
+            <Link href="https://www.youtube.com/channel/UCDl42bWm2kzQ5ky3PMR2dtw" target="_blank" _hover={{ color: '#FF0000' }}><FaYoutube /></Link>
           </Flex>
         </Box>
       </Flex>
-      <Box>
-        <Text>
+      <Box bgColor="black">
+        <Text p="1em" color="#fefefe" opacity="0.6">
           © Achajogo - Alguns direitos reservados.
         </Text>
       </Box>
-    </footer>
+    </Box>
   </>
 
 );
