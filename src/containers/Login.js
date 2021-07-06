@@ -5,14 +5,14 @@ import { login } from '../api-requests';
 import { userData } from '../redux/actions';
 
 const LoginButton = ({ userData }) => {
-  const onClick = async () => {
+  const handleLogin = async () => {
     const data = await login();
     userData({ isLoggedIn: true, userCode: data, userInfo: '' });
   };
 
   return (
     <>
-      <Button onClick={onClick}>Connect</Button>
+      <Button onClick={handleLogin}>Connect</Button>
     </>
   );
 };

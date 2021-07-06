@@ -1,5 +1,6 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import {
-  Image, Grid, Link, Flex, Heading, Avatar, Box, Text, Icon,
+  Image, Grid, Link, Flex, Heading, Avatar, Box, Text,
 } from '@chakra-ui/react';
 import {
   FaFacebookF, FaInstagram, FaTwitch, FaYoutube,

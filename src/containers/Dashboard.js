@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import LoginButton from './Login';
+import LogoutButton from './Logout';
 import {
   requestLastMine, requestItems, requestItemsData,
 } from '../api-requests';
@@ -35,6 +36,7 @@ const Dashboard = ({ isLoggedIn, userCode }) => {
         <>
           <NavBar />
           <Box>
+            <LogoutButton />
             <MiningItems items={items} />
           </Box>
         </>
