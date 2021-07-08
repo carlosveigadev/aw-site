@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 
 const MiningItems = ({ items }) => (
   <>
-    <Text>Seus Items são:</Text>
-    {items.map((ele) => <Text key={Math.random()}>{ele[0]}</Text>)}
+    {items.map((ele) => <Text key={Math.random()}>{ele}</Text>)}
   </>
 );
 

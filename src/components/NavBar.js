@@ -49,6 +49,10 @@ const NavBar = () => {
     history.push('/dashboard');
   };
 
+  const goTop100mining = () => {
+    history.push('/top100mining');
+  };
+
   return (
     <>
       <Box>
@@ -74,6 +78,7 @@ const NavBar = () => {
             <DrawerBody my="4em" display="flex" flexDirection="column">
               <Button variant="ghost" onClick={goHome}>Home</Button>
               <Button variant="ghost" onClick={goDashboard}>Dashboard</Button>
+              <Button variant="ghost" onClick={goTop100mining}>Últimas 100 Mineirações</Button>
               <ThemeChanger />
             </DrawerBody>
           </DrawerContent>
@@ -86,6 +91,7 @@ const NavBar = () => {
       >
         <MenuItem to="/">Home</MenuItem>
         <MenuItem to="/dashboard">Dashboard</MenuItem>
+        <MenuItem to="/top100mining">Últimas 100 Mineirações</MenuItem>
         <ThemeChanger />
 
       </Flex>

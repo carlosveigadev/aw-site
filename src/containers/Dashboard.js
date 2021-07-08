@@ -1,4 +1,6 @@
-import { Box, Text } from '@chakra-ui/react';
+import {
+  Text, Flex, Center,
+} from '@chakra-ui/react';
 import PropTypes from 'prop-types';
 import { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
@@ -7,7 +9,6 @@ import LogoutButton from './Logout';
 import {
   requestLastMine, requestItems, requestItemsData,
 } from '../api-requests';
-import MiningItems from '../components/MiningItems';
 import NavBar from '../components/NavBar';
 
 const Dashboard = ({ isLoggedIn, userCode }) => {
@@ -35,10 +36,17 @@ const Dashboard = ({ isLoggedIn, userCode }) => {
       return (
         <>
           <NavBar />
-          <Box>
-            <LogoutButton />
-            <MiningItems items={items} />
-          </Box>
+          <Flex
+            justifyContent="center"
+            flexDirection="column"
+          >
+            <Center>
+              <LogoutButton />
+            </Center>
+            <Center my="1em">
+              <h2>test</h2>
+            </Center>
+          </Flex>
         </>
       );
     }
@@ -47,10 +55,20 @@ const Dashboard = ({ isLoggedIn, userCode }) => {
   return (
     <>
       <NavBar />
-      <Box>
-        <LoginButton />
-        <Text>Você precisa se conectar com sua conta de AlienWorlds.</Text>
-      </Box>
+      <Flex
+        justifyContent="center"
+        flexDirection="column"
+      >
+        <Center>
+          <LoginButton />
+        </Center>
+        <Center my="1em">
+          <Text>
+            Você precisa se conectar com sua conta de AlienWorlds para
+            carregarmos dados relacionados com a sua conta.
+          </Text>
+        </Center>
+      </Flex>
     </>
   );
 };

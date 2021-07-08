@@ -85,3 +85,15 @@ export const requestLandData = async (landCode) => {
     return error;
   }
 };
+
+export const requestTop100mines = async () => {
+  try {
+    const response = await axios({
+      url: 'http://34.136.237.181/',
+    });
+    const newData = await response.data;
+    return newData;
+  } catch (error) {
+    return error;
+  }
+};
