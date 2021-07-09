@@ -2,15 +2,15 @@ import {
   Table, TableCaption, Thead, Tr, Th, Td, Tbody, Center, Heading,
 } from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { requestTop100mines } from '../api-requests';
+import { requestLast100mines } from '../api-requests';
 import MiningItems from './MiningItems';
 import NavBar from './NavBar';
 
-const Top100Mining = () => {
+const Last100Mining = () => {
   const [items, setItems] = useState([]);
 
   useEffect(async () => {
-    const newData = await requestTop100mines();
+    const newData = await requestLast100mines();
     setItems(newData);
   }, []);
 
@@ -45,4 +45,4 @@ const Top100Mining = () => {
   );
 };
 
-export default Top100Mining;
+export default Last100Mining;

@@ -86,7 +86,7 @@ export const requestLandData = async (landCode) => {
   }
 };
 
-export const requestTop100mines = async () => {
+export const requestLast100mines = async () => {
   try {
     const response = await axios({
       url: 'http://34.136.237.181/',
