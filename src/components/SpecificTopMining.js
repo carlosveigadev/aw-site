@@ -48,7 +48,10 @@ const SpecificTopMining = () => {
 
     const data = await requestSpecificTopMining(values);
     setItems(data);
-    console.log(items);
+  };
+
+  const resetSearch = () => {
+    setItems([]);
   };
 
   return (
@@ -72,7 +75,7 @@ const SpecificTopMining = () => {
               </Center>
               <Center my="1em">
                 <Text mr="1em">Ordem:</Text>
-                <RadioGroup onChange={setOrder} value={order}>
+                <RadioGroup onChange={setOrder} value={order} colorScheme="purple">
                   <Stack direction="row">
                     <Radio value="1">Crescente</Radio>
                     <Radio value="-1">Decrescente</Radio>
@@ -98,35 +101,44 @@ const SpecificTopMining = () => {
                 />
               </Flex>
               <Center my="1em">
-                <Button type="submit">Procurar</Button>
+                <Button colorScheme="purple" type="submit">Procurar</Button>
               </Center>
             </form>
           </Center>
         </>
       ) : (
-        <Center m="1em">
-          <Table variant="striped" colorScheme="blue">
-            <TableCaption>Últimas 100 mineirações em Kavian 23:6.</TableCaption>
-            <Thead>
-              <Tr>
-                <Th>Mineirador</Th>
-                <Th>Quantidade TLM</Th>
-                <Th>Itens utilizados</Th>
-                <Th>Data</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              {items.map((element) => (
-                <Tr key={element.trxId}>
-                  <Td>{element.miner}</Td>
-                  <Td>{element.bounty}</Td>
-                  <Td><MiningItems items={element.bag_items} /></Td>
-                  <Td>{element.timestamp}</Td>
+        <>
+          <NavBar />
+          <Center>
+            <Button colorScheme="purple" onClick={resetSearch}>New Search</Button>
+          </Center>
+          <Center m="1em">
+            <Table variant="striped" colorScheme="blue">
+              <TableCaption>Últimas 100 mineirações em Kavian 23:6.</TableCaption>
+              <Thead>
+                <Tr>
+                  <Th>Mineirador</Th>
+                  <Th>Quantidade TLM</Th>
+                  <Th>Itens utilizados</Th>
+                  <Th>Data</Th>
                 </Tr>
-              ))}
-            </Tbody>
-          </Table>
-        </Center>
+              </Thead>
+              <Tbody>
+                {items.map((element) => (
+                  <Tr key={element.trxId}>
+                    <Td>{element.miner}</Td>
+                    <Td>{element.bounty}</Td>
+                    <Td><MiningItems items={element.bag_items} /></Td>
+                    <Td>{element.timestamp}</Td>
+                  </Tr>
+                ))}
+              </Tbody>
+            </Table>
+          </Center>
+          <Center my="1em">
+            <Button colorScheme="purple" onClick={resetSearch}>New Search</Button>
+          </Center>
+        </>
       )}
     </>
   );
