@@ -97,3 +97,19 @@ export const requestTop100mines = async () => {
     return error;
   }
 };
+
+export const requestSpecificTopMining = async (values) => {
+  const {
+    initialDate, finalDate, order, registers, page,
+  } = values;
+  try {
+    const response = await axios({
+      url: `http://34.136.237.181/mining/?startDate=${initialDate}&endDate=${finalDate}&limit=${registers}&page=${page}&sort=${order}`,
+    });
+    const newData = await response.data;
+    console.log(newData);
+    return newData;
+  } catch (error) {
+    return error;
+  }
+};

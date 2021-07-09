@@ -53,6 +53,10 @@ const NavBar = () => {
     history.push('/top100mining');
   };
 
+  const goSpecificTopMining = () => {
+    history.push('/specifictopmining');
+  };
+
   return (
     <>
       <Box>
@@ -79,6 +83,7 @@ const NavBar = () => {
               <Button variant="ghost" onClick={goHome}>Home</Button>
               <Button variant="ghost" onClick={goDashboard}>Dashboard</Button>
               <Button variant="ghost" onClick={goTop100mining}>Últimas 100 Mineirações</Button>
+              <Button variant="ghost" onClick={goSpecificTopMining}>Procurar por Mineirações</Button>
               <ThemeChanger />
             </DrawerBody>
           </DrawerContent>
@@ -92,8 +97,8 @@ const NavBar = () => {
         <MenuItem to="/">Home</MenuItem>
         <MenuItem to="/dashboard">Dashboard</MenuItem>
         <MenuItem to="/top100mining">Últimas 100 Mineirações</MenuItem>
+        <MenuItem to="/specifictopmining">Procurar por Mineirações</MenuItem>
         <ThemeChanger />
-
       </Flex>
     </>
   );

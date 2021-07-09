@@ -8,7 +8,7 @@ const MiningItems = ({ items }) => (
 );
 
 MiningItems.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.array).isRequired,
+  items: PropTypes.arrayOf(PropTypes.string).isRequired,
 };
 
 export default MiningItems;
