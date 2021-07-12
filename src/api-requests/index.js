@@ -1,5 +1,7 @@
+/* eslint-disable no-await-in-loop */
 import * as waxjs from '@waxio/waxjs/dist';
 import axios from 'axios';
+import { fetchPaginate } from 'fetch-paginate';
 
 const wax = new waxjs.WaxJS('https://wax.greymass.com');
 
@@ -100,15 +102,28 @@ export const requestLast100mines = async () => {
 
 export const requestSpecificTopMining = async (values) => {
   const {
-    initialDate, finalDate, order, registers, page,
+    initialDate, finalDate, order, registers,
   } = values;
   try {
-    const response = await axios({
-      url: `http://34.136.237.181/mining/?startDate=${initialDate}&endDate=${finalDate}&limit=${registers}&page=${page}&sort=${order}`,
-    });
-    const newData = await response.data;
-    console.log(newData);
-    return newData;
+    let nextPage = true;
+    let page = 1;
+    let promises = [];
+
+    while (nextPage) {
+      const response = await axios({
+        url: `http://34.136.237.181/mining/?startDate=${initialDate}&endDate=${finalDate}&limit=${registers}&page=${page}&sort=${order}`,
+      });
+      promises = [...promises, ...response.data];
+      page += 1;
+
+      if (await response.data.length === 0) {
+        nextPage = false;
+      }
+    }
+
+    const responses = await Promise.all(promises);
+    console.log(responses);
+    return responses;
   } catch (error) {
     return error;
   }
