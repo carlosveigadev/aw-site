@@ -29,7 +29,6 @@ const SpecificTopMining = () => {
   const [date, setDate] = useState([new Date(), new Date()]);
   const [order, setOrder] = useState('1');
   const [registers, setRegisters] = useState('');
-  const [page, setPage] = useState('');
 
   const [items, setItems] = useState([]);
 
@@ -43,7 +42,6 @@ const SpecificTopMining = () => {
       finalDate: date[1].toISOString(),
       order,
       registers,
-      page,
     };
 
     const data = await requestSpecificTopMining(values);
@@ -89,15 +87,6 @@ const SpecificTopMining = () => {
                   placeholder="(máximo 100)"
                   value={registers}
                   onChange={(e) => setRegisters(e.target.value)}
-                />
-              </Flex>
-              <Flex my="1em" justifyContent="space-between">
-                <Text mr="1em" aria-required textAlign="center" alignSelf="center">Nũmero da Página:</Text>
-                <Input
-                  width="150px"
-                  placeholder="(máximo 10)"
-                  value={page}
-                  onChange={(e) => setPage(e.target.value)}
                 />
               </Flex>
               <Center my="1em">
