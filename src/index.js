@@ -34,8 +34,8 @@ ReactDOM.render(
   <ChakraProvider>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
+        <ColorModeScript initialColorMode={Theme.config.initialColorMode} />
         <HashRouter>
-          <ColorModeScript initialColorMode={Theme.config.initialColorMode} />
           <Home />
         </HashRouter>
       </PersistGate>
