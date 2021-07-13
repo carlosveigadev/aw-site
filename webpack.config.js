@@ -101,7 +101,7 @@ const config = {
     },
   },
   devServer: {
-    contentBase: './dist',
+    contentBase: './build',
     historyApiFallback: true,
   },
 };
