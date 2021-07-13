@@ -1,0 +1,11 @@
+.dark > * {
+  background-color: #1a202c;
+}
+
+.dark button:disabled {
+  background-color: #47525d;
+}
+
+.dark .react-calendar__tile--now {
+  background-color: orangered;
+}
