@@ -86,8 +86,8 @@ const NavBar = () => {
             <DrawerBody my="4em" display="flex" flexDirection="column">
               <Button variant="ghost" onClick={goHome}>Home</Button>
               <Button variant="ghost" onClick={goDashboard}>Dashboard</Button>
-              <Button variant="ghost" onClick={goTop100mining}>Últimas 100 Mineirações</Button>
-              <Button variant="ghost" onClick={goSpecificTopMining}>Procurar por Mineirações</Button>
+              <Button variant="ghost" onClick={goTop100mining}>Últimas 100 Minerações</Button>
+              <Button variant="ghost" onClick={goSpecificTopMining}>Procurar por Minerações</Button>
               <Button variant="ghost" onClick={goTopMiners}>Top Miners</Button>
               <ThemeChanger />
             </DrawerBody>
@@ -98,11 +98,12 @@ const NavBar = () => {
         py="1em"
         display={{ base: 'none', xl: 'flex' }}
         justifyContent="space-around"
+        alignItems="center"
       >
         <MenuItem to="/">Home</MenuItem>
         <MenuItem to="/dashboard">Dashboard</MenuItem>
-        <MenuItem to="/top100mining">Últimas 100 Mineirações</MenuItem>
-        <MenuItem to="/specifictopmining">Procurar por Mineirações</MenuItem>
+        <MenuItem to="/top100mining">Últimas 100 Minerações</MenuItem>
+        <MenuItem to="/specifictopmining">Procurar por Minerações</MenuItem>
         <MenuItem to="/topminers">Top Miners</MenuItem>
         <ThemeChanger />
       </Flex>
