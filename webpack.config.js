@@ -6,6 +6,10 @@ const config = {
     new webpack.ProvidePlugin({
       React: 'react',
     }),
+
+    new webpack.ProvidePlugin({
+      process: 'process/browser',
+    }),
   ],
   entry: [
     'react-hot-loader/patch',
