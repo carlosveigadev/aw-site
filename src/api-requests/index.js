@@ -1,7 +1,6 @@
 /* eslint-disable no-await-in-loop */
 import * as waxjs from '@waxio/waxjs/dist';
 import axios from 'axios';
-import { fetchPaginate } from 'fetch-paginate';
 
 const wax = new waxjs.WaxJS('https://wax.greymass.com');
 
