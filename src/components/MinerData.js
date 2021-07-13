@@ -2,9 +2,6 @@
 import {
   Center,
   Heading,
-  Radio,
-  RadioGroup,
-  Stack,
   useColorMode,
   Text,
   Input,
@@ -21,13 +18,13 @@ import {
 } from '@chakra-ui/react';
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 import { useState } from 'react';
-import NavBar from './NavBar';
-import { requestTopMiners } from '../api-requests';
+import PropTypes from 'prop-types';
+import { requestUserData } from '../api-requests';
 import '../assets/css/specificTopMining.css';
+import MiningItems from './MiningItems';
 
-const TopMiners = () => {
+const MinerData = ({ userCode }) => {
   const [date, setDate] = useState([new Date(), new Date()]);
-  const [order, setOrder] = useState('1');
   const [registers, setRegisters] = useState('');
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
@@ -41,11 +38,10 @@ const TopMiners = () => {
     const values = {
       initialDate: date[0].toISOString(),
       finalDate: date[1].toISOString(),
-      order,
-      registers,
+      account: userCode,
     };
 
-    const data = await requestTopMiners(values);
+    const data = await requestUserData(values);
     setItems(data);
     setLoading(false);
   };
@@ -56,8 +52,6 @@ const TopMiners = () => {
 
   return (
     <>
-      <NavBar />
-      {' '}
       {loading ? (
         <Center>
           <CircularProgress isIndeterminate color="purple.300" />
@@ -80,16 +74,7 @@ const TopMiners = () => {
                       value={date}
                     />
                   </Center>
-                  <Center my="1em">
-                    <Text mr="1em">Ordem:</Text>
-                    <RadioGroup onChange={setOrder} value={order} colorScheme="purple">
-                      <Stack direction="row">
-                        <Radio value="1">Crescente</Radio>
-                        <Radio value="-1">Decrescente</Radio>
-                      </Stack>
-                    </RadioGroup>
-                  </Center>
-                  <Flex>
+                  <Flex my="1em">
                     <Text mr="1em" aria-required alignSelf="center">Quantidade de Registros:</Text>
                     <Input
                       width="150px"
@@ -109,20 +94,22 @@ const TopMiners = () => {
               <Center>
                 <Button colorScheme="purple" onClick={resetSearch}>Nova Busca</Button>
               </Center>
-              <Center m="5em">
+              <Center m="3em">
                 <Table variant="striped" colorScheme="blue">
-                  <TableCaption>Últimas 100 minerações em Kavian 23:6.</TableCaption>
+                  <TableCaption>{`Últimas ${items.length} minerações em Kavian 23:6.`}</TableCaption>
                   <Thead>
                     <Tr>
                       <Th textAlign="center">Minerador</Th>
                       <Th textAlign="center">Quantidade total de TLM minerados</Th>
+                      <Th textAlign="center">Itens utilizados</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
                     {items.map((element) => (
                       <Tr key={`${element.trxId}${Math.random()}`}>
-                        <Td textAlign="center">{element._id}</Td>
-                        <Td textAlign="center">{element.total}</Td>
+                        <Td textAlign="center">{userCode}</Td>
+                        <Td textAlign="center">{element.bounty}</Td>
+                        <Td textAlign="center"><MiningItems items={element.bag_items} /></Td>
                       </Tr>
                     ))}
                   </Tbody>
@@ -138,4 +125,9 @@ const TopMiners = () => {
     </>
   );
 };
-export default TopMiners;
+
+MinerData.propTypes = {
+  userCode: PropTypes.string.isRequired,
+};
+
+export default MinerData;

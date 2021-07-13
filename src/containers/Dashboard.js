@@ -10,11 +10,10 @@ import {
   requestLastMine, requestItems, requestItemsData,
 } from '../api-requests';
 import NavBar from '../components/NavBar';
+import MinerData from '../components/MinerData';
 
 const Dashboard = ({ isLoggedIn, userCode }) => {
   if (isLoggedIn) {
-    const [time, setTime] = useState('');
-    console.log(time);
     const [items, setItems] = useState([]);
     const [land, setLand] = useState('');
 
@@ -27,7 +26,6 @@ const Dashboard = ({ isLoggedIn, userCode }) => {
           const result = await requestItemsData(element);
           setItems((prevItems) => [...prevItems, [result.name, result.delay]]);
         });
-        setTime(dataMine.last_mine);
         setLand(dataMine.current_land);
       }, 1000);
     }, []);
@@ -44,7 +42,7 @@ const Dashboard = ({ isLoggedIn, userCode }) => {
               <LogoutButton />
             </Center>
             <Center my="1em">
-              <h2>test</h2>
+              <MinerData userCode={userCode} />
             </Center>
           </Flex>
         </>

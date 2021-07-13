@@ -142,3 +142,19 @@ export const requestTopMiners = async (values) => {
     return error;
   }
 };
+
+export const requestUserData = async (values) => {
+  const {
+    initialDate, finalDate, account,
+  } = values;
+  try {
+    const response = await axios({
+      url: `http://34.136.237.181/mining/${account}?startDate=${initialDate}&endDate=${finalDate}&limit=100&page=1&sort=-1`,
+    });
+    const newData = await response.data;
+    console.log(newData);
+    return newData;
+  } catch (error) {
+    return error;
+  }
+};
