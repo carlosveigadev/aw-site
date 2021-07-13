@@ -7,7 +7,7 @@ import SpecificTopMining from './components/SpecificTopMining';
 import TopMiners from './components/TopMiners';
 
 const App = () => (
-  <BrowserRouter basename={process.env.PUBLIC_URL}>
+  <BrowserRouter basename={window.location.pathname || ''}>
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/dashboard" component={Dashboard} />
