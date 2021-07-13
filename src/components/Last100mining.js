@@ -18,14 +18,14 @@ const Last100Mining = () => {
     <>
       <NavBar />
       <Center>
-        <Heading size="xm">Últimas 100 mineirações em Kavian 23:6.</Heading>
+        <Heading size="xm">Últimas 100 minerações em Kavian 23:6.</Heading>
       </Center>
       <Center m="1em">
         <Table variant="striped" colorScheme="blue">
-          <TableCaption>Últimas 100 mineirações em Kavian 23:6.</TableCaption>
+          <TableCaption>Últimas 100 minerações em Kavian 23:6.</TableCaption>
           <Thead>
             <Tr>
-              <Th>Mineirador</Th>
+              <Th>Minerador</Th>
               <Th>Quantidade TLM</Th>
               <Th>Itens utilizados</Th>
             </Tr>

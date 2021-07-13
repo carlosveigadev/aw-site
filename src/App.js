@@ -4,6 +4,7 @@ import Dashboard from './containers/Dashboard';
 import Home from './components/Home';
 import Last100Mining from './components/Last100mining';
 import SpecificTopMining from './components/SpecificTopMining';
+import TopMiners from './components/TopMiners';
 
 const App = () => (
   <BrowserRouter>
@@ -12,6 +13,7 @@ const App = () => (
       <Route path="/dashboard" component={Dashboard} />
       <Route path="/top100mining" component={Last100Mining} />
       <Route path="/specifictopmining" component={SpecificTopMining} />
+      <Route path="/topminers" component={TopMiners} />
     </Switch>
   </BrowserRouter>
 

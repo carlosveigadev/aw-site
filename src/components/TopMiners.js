@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 import {
   Center,
   Heading,
@@ -20,12 +21,12 @@ import {
 } from '@chakra-ui/react';
 import DateRangePicker from '@wojtekmaj/react-daterange-picker';
 import { useState } from 'react';
-import { requestSpecificTopMining } from '../api-requests';
 import NavBar from './NavBar';
-import MiningItems from './MiningItems';
+import { requestTopMiners } from '../api-requests';
+// import MiningItems from './MiningItems';
 import '../assets/css/specificTopMining.css';
 
-const SpecificTopMining = () => {
+const TopMiners = () => {
   const [date, setDate] = useState([new Date(), new Date()]);
   const [order, setOrder] = useState('1');
   const [registers, setRegisters] = useState('');
@@ -45,7 +46,8 @@ const SpecificTopMining = () => {
       registers,
     };
 
-    const data = await requestSpecificTopMining(values);
+    const data = await requestTopMiners(values);
+    console.log(data);
     setItems(data);
     setLoading(false);
   };
@@ -67,7 +69,7 @@ const SpecificTopMining = () => {
           {items.length === 0 ? (
             <>
               <Center>
-                <Heading size="xm">Últimas minerações em Kavian 23:6</Heading>
+                <Heading size="xm">Buscar os Top Mineradores da Land</Heading>
               </Center>
               <Center my="1em">
                 <form onSubmit={handleSubmit}>
@@ -109,24 +111,20 @@ const SpecificTopMining = () => {
               <Center>
                 <Button colorScheme="purple" onClick={resetSearch}>Nova Busca</Button>
               </Center>
-              <Center m="1em">
+              <Center m="5em">
                 <Table variant="striped" colorScheme="blue">
                   <TableCaption>Últimas 100 minerações em Kavian 23:6.</TableCaption>
                   <Thead>
                     <Tr>
-                      <Th>Minerador</Th>
-                      <Th>Quantidade TLM</Th>
-                      <Th>Itens utilizados</Th>
-                      <Th>Data</Th>
+                      <Th textAlign="center">Minerador</Th>
+                      <Th textAlign="center">Quantidade total de TLM minerados</Th>
                     </Tr>
                   </Thead>
                   <Tbody>
                     {items.map((element) => (
                       <Tr key={`${element.trxId}${Math.random()}`}>
-                        <Td>{element.miner}</Td>
-                        <Td>{element.bounty}</Td>
-                        <Td><MiningItems items={element.bag_items} /></Td>
-                        <Td>{element.timestamp}</Td>
+                        <Td textAlign="center">{element._id}</Td>
+                        <Td textAlign="center">{element.total}</Td>
                       </Tr>
                     ))}
                   </Tbody>
@@ -142,4 +140,4 @@ const SpecificTopMining = () => {
     </>
   );
 };
-export default SpecificTopMining;
+export default TopMiners;

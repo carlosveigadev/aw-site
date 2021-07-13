@@ -122,8 +122,22 @@ export const requestSpecificTopMining = async (values) => {
     }
 
     const responses = await Promise.all(promises);
-    console.log(responses);
     return responses;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const requestTopMiners = async (values) => {
+  const {
+    initialDate, finalDate, order, registers,
+  } = values;
+  try {
+    const response = await axios({
+      url: `http://34.136.237.181/topMiners/?startDate=${initialDate}&endDate=${finalDate}&limit=${registers}&page=1&sort=${order}`,
+    });
+    const newData = await response.data;
+    return newData;
   } catch (error) {
     return error;
   }
