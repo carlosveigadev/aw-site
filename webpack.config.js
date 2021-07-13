@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const CopyPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
 const config = {
@@ -9,6 +10,15 @@ const config = {
 
     new webpack.ProvidePlugin({
       process: 'process/browser',
+    }),
+
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.resolve(__dirname, '/src/assets/'),
+          to: path.resolve(__dirname, 'build'),
+        },
+      ],
     }),
   ],
   entry: [

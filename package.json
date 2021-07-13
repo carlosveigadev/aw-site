@@ -25,6 +25,7 @@
     "@waxio/waxjs": "^0.0.15",
     "@wojtekmaj/react-daterange-picker": "^3.2.0",
     "axios": "^0.21.1",
+    "copy-webpack-plugin": "^9.0.1",
     "eslint-config-airbnb": "18.x",
     "eslint-plugin-import": "2.x",
     "eslint-plugin-jsx-a11y": "6.x",
